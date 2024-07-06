@@ -1,6 +1,7 @@
 import { Express } from "express";
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+import { env } from "../env";
 
 const options = {
     definition: {
@@ -13,7 +14,7 @@ const options = {
         },
         servers: [
             {
-                url: "http://localhost:3000",
+                url: `http://localhost:${env.APP_PORT}`,
                 description: "API Endpoint",
             },
         ],
