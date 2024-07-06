@@ -1,4 +1,4 @@
-# Express JS Boilerplate.
+# Todo API.
 
 ## Express.js with Typescript and ORM (Typeorm: Postgre & Mysql Driver)
 
