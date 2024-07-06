@@ -75,6 +75,12 @@ export const TodoController = {
 
         const data = matchedData(req);
 
+        const findStatus = await Todo.findOneBy({ id: data.id });
+
+        if (findStatus) {
+            data.status = !findStatus.status;
+        }
+
         const update = await Todo.update(
             { id: data.id },
             {

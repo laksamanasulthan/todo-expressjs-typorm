@@ -84,12 +84,15 @@ todoRouter.post("/insert", storeTodoValidator, TodoController.store);
  *                 id:
  *                   type: string
  *                   example: "1"
- *                 field:
+ *                 title:
  *                   type: string
- *                   example: "value"
- *                 field2:
+ *                   example: "Kegiatan Hari ini"
+ *                 description:
  *                   type: string
- *                   example: "value2"
+ *                   example: "Di Malang, Study Tour"
+ *                 status:
+ *                   type: boolean
+ *                   example: true
  *       404:
  *         description: Data not found
  */
@@ -115,13 +118,16 @@ todoRouter.get("/:id", idValidator, TodoController.show);
  *           schema:
  *             type: object
  *             required:
- *               - field
- *               - field2
+ *               - title
+ *               - description
+ *               - status
  *             properties:
- *               field:
+ *               title:
  *                 type: string
- *               field2:
+ *               description:
  *                 type: string
+ *               status:
+ *                 type: boolean
  *     responses:
  *       200:
  *         description: Data updated successfully
@@ -170,7 +176,7 @@ todoRouter.delete("/:id/delete", idValidator, TodoController.delete);
  *         required: true
  *         schema:
  *           type: string
- *         description: ID of the data to delete
+ *         description: ID of the data to Change the Status
  *     responses:
  *       204:
  *         description: Data updated successfully

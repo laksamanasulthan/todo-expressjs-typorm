@@ -47,7 +47,11 @@ export const AuthController = {
             }
         );
 
-        return res.status(200).json({ jwtToken });
+        return res.status(200).json({
+            token: jwtToken,
+            email: findUser.email,
+            id: findUser.id,
+        });
     },
 
     async register(req: Request, res: Response) {
@@ -67,6 +71,11 @@ export const AuthController = {
 
         const save = await user.save();
 
-        return res.status(201).json(save);
+        return res.status(201).json({
+            id: save.id,
+            name: save.name,
+            username: save.username,
+            email: save.email,
+        });
     },
 };
